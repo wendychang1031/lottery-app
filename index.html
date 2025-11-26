@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>114學年度中壢高商歲末感恩餐會(測試)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-soft: #e0edff;
+      --danger: #e11d48;
+      --warning: #f59e0b;
+      --bg-soft: #f3f4ff;
+      --card-bg: #ffffff;
+      --border-soft: #e3e6f0;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --table-header: #eef2ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0f2fe 0%, #f9fafb 40%, #f3e8ff 100%);
+      margin: 0;
+      padding: 18px;
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ===== Hero 標題區 + 動畫 ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .hero-text {
+      flex: 1.4;
+    }
+
+    .hero-title-main {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .hero-title-sub {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 4px;
+    }
+
+    .hero-subline {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .hero-illus {
+      flex: 1;
+      min-width: 190px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      position: relative;
+      width: 210px;
+      height: 150px;
+      border-radius: 30px;
+      background: radial-gradient(circle at 0% 0%, #fee2e2 0%, #fffbeb 30%, #dbeafe 80%);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+      overflow: hidden;
+      padding: 16px 16px 14px;
+      animation: floatIn 1s ease-out 0.25s both;
+    }
+
+    .hero-badge-gift {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-text {
+      font-size: 13px;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    .hero-badge-tag {
+      position: absolute;
+      right: 14px;
+      bottom: 12px;
+      padding: 4px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #c2410c;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-confetti-dot {
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.7;
+    }
+    .hero-confetti-dot.dot1 { width: 10px; height: 10px; background:#fb7185; top: 12px; right: 60px; }
+    .hero-confetti-dot.dot2 { width: 8px;  height: 8px;  background:#facc15; top: 28px; right: 26px; }
+    .hero-confetti-dot.dot3 { width: 11px; height: 11px; background:#22c55e; bottom: 22px; left: 40px;}
+
+    /* 動畫 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ===== 主容器 ===== */
+    .container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 18px 22px 22px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 18px;
+      margin-top: 6px;
+    }
+
+    .card {
+      border-radius: 16px;
+      background: #f9fafb;
+      padding: 14px 14px 10px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+    }
+
+    .card h2 span.icon {
+      font-size: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+      background-color: #ffffff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 4px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.12s ease;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.14);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: none;
+      opacity: 0.9;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    button.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    button.danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    button.secondary {
+      background: var(--warning);
+      color: #422006;
+    }
+
+    /* 文青風 儲存 / 刪除按鈕 */
+    button.save-btn {
+      background: #A8C5A0;  /* 莫蘭迪綠 - 儲存 */
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+      border: none;
+    }
+
+    button.delete-btn {
+      background: #D9A5A0;  /* 莫蘭迪粉 - 刪除 */
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+      border: none;
+    }
+
+    button.save-btn:hover,
+    button.delete-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16);
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+      min-width: 420px;
+      background: #ffffff;
+    }
+
+    /* ===== 獎品表格美化 ===== */
+    .prize-table {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .prize-table thead th {
+      background: linear-gradient(90deg, var(--table-header) 0%, #dde7ff 100%);
+      color: #111827;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-bottom: 1px solid #d4d9e6;
+    }
+
+    .prize-table tbody tr:nth-child(odd) {
+      background: #f9fbff;
+    }
+
+    .prize-table tbody tr:nth-child(even) {
+      background: #ffffff;
+    }
+
+    .prize-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #e5e7f0;
+    }
+
+    .prize-table td:first-child {
+      width: 42%;
+    }
+
+    .prize-table td:nth-child(2),
+    .prize-table td:nth-child(3),
+    .prize-table td:nth-child(4) {
+      text-align: center;
+    }
+
+    #prize-table-body td:nth-child(2) input {
+      max-width: 70px;
+      text-align: center;
+    }
+
+    #prize-table-body td:first-child input {
+      width: 100%;
+      padding: 4px 6px;
+    }
+
+    .prize-table td:last-child {
+      text-align: center;
+    }
+
+    #prize-table-body td:last-child button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 4px 10px;
+    }
+
+    /* ===== 員工表格 ===== */
+    .emp-table {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .emp-table thead th {
+      background: linear-gradient(90deg, #eef2ff 0%, #e0f2fe 100%);
+      padding: 8px 10px;
+      border-bottom: 1px solid #d4d9e6;
+    }
+
+    .emp-table tbody tr:nth-child(odd) {
+      background: #f9fafb;
+    }
+
+    .emp-table tbody tr:nth-child(even) {
+      background: #ffffff;
+    }
+
+    .emp-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #e5e7f0;
+    }
+
+    .emp-table td:first-child {
+      width: 38%;
+    }
+
+    .emp-table td:nth-child(2),
+    .emp-table td:nth-child(3) {
+      text-align: center;
+    }
+
+    #emp-table-body td:first-child input {
+      width: 100%;
+      padding: 4px 6px;
+    }
+
+    #emp-table-body td:last-child {
+      text-align: center;
+    }
+
+    #emp-table-body td:last-child button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 4px 10px;
+    }
+
+    th, td {
+      text-align: left;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .badge-green {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-gray {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    /* ===== 抽獎區、紅包按鈕、動畫 ===== */
+    .draw-section {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+
+    .winner-card {
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, #e0f2fe 0%, #fdf2ff 40%, #ffffff 100%);
+      border: 1px solid #c3d4ff;
+      padding: 14px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .winner-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #111827;
+    }
+
+    .winner-title span {
+      font-size: 20px;
+    }
+
+    .winner-text-main {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1d4ed8;
+      min-height: 28px;
+      margin-top: 4px;
+    }
+
+    .draw-status {
+      font-size: 13px;
+      color: #7c2d12;
+      margin-top: 4px;
+    }
+
+    .winner-sub {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .draw-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hint-text {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* 超大紅包抽獎按鈕 */
+    .red-envelope-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0%, #fee2e2 0%, #f97316 40%, #b91c1c 100%);
+      color: #fff7ed;
+      font-size: 18px;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 24px rgba(127, 29, 29, 0.55);
+      border: 2px solid rgba(255, 250, 240, 0.3);
+      overflow: hidden;
+    }
+
+    .red-envelope-btn span.icon {
+      font-size: 26px;
+    }
+
+    .red-envelope-btn::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 999px;
+      border-top: 2px solid rgba(254, 249, 195, 0.65);
+      opacity: 0.9;
+    }
+
+    .red-envelope-btn:hover:not(:disabled) {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 34px rgba(127, 29, 29, 0.7);
+    }
+
+    .red-envelope-btn:active:not(:disabled) {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: 0 6px 14px rgba(127, 29, 29, 0.5);
+    }
+
+    .red-envelope-btn:disabled {
+      opacity: 0.7;
+      box-shadow: 0 6px 14px rgba(75, 85, 99, 0.3);
+    }
+
+    .draw-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    #winner-list {
+      margin-top: 6px;
+      max-height: 170px;
+      overflow-y: auto;
+      font-size: 13px;
+      padding-left: 18px;
+    }
+
+    #winner-list li {
+      margin-bottom: 2px;
+    }
+
+    /* 抽獎跑名字動畫 */
+    .rolling {
+      animation: pulseName 0.4s infinite alternate;
+    }
+
+    @keyframes pulseName {
+      from { transform: scale(1); }
+      to   { transform: scale(1.04); }
+    }
+
+    /* Confetti */
+    .confetti-piece {
+      position: fixed;
+      width: 8px;
+      height: 12px;
+      background-color: #f97316;
+      top: -20px;
+      z-index: 999;
+      opacity: 0.9;
+      border-radius: 2px;
+      pointer-events: none;
+      animation-name: confetti-fall;
+      animation-timing-function: linear;
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translate3d(0, 110vh, 0) rotateZ(240deg);
+        opacity: 0.2;
+      }
+    }
+
+    /* ===== RWD ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-title-main {
+        font-size: 22px;
+      }
+
+      .hero-title-sub {
+        font-size: 16px;
+      }
+
+      .hero-subline {
+        font-size: 12px;
+      }
+
+      .container {
+        padding: 12px 12px 16px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 10px 10px 8px;
+      }
+
+      .card h2 {
+        font-size: 16px;
+      }
+
+      .draw-section {
+        grid-template-columns: 1fr;
+      }
+
+      .winner-card {
+        padding: 10px 12px;
+      }
+
+      .winner-text-main {
+        font-size: 18px;
+      }
+
+      table {
+        font-size: 13px;
+        min-width: 380px;
+      }
+
+      th, td {
+        padding: 4px 6px;
+      }
+
+      .red-envelope-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Hero 標題區 -->
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-title-main">114 學年度中壢高商歲末感恩餐會(測試)</div>
+        <div class="hero-title-sub">歲末年終好禮來相送 🎁</div>
+        <div class="hero-subline">
+          專為中壢高商設計的雲端尾牙抽獎系統：管理員工名單與獎品、即時抽獎、不重複中獎、紀錄完整。<br />
+          支援大螢幕投影與手機操作，讓尾牙抽獎更公平、公正又有儀式感。
+        </div>
+      </div>
+      <div class="hero-illus">
+        <div class="hero-badge">
+          <div class="hero-badge-gift">🎊</div>
+          <div class="hero-badge-text">
+            按下紅包抽獎鈕，<br />
+            幸運員工立刻揭曉！
+          </div>
+          <div class="hero-badge-tag">
+            <span>Lucky Night</span> ✨
+          </div>
+          <div class="hero-confetti-dot dot1"></div>
+          <div class="hero-confetti-dot dot2"></div>
+          <div class="hero-confetti-dot dot3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- 上半部：獎品 / 員工管理 -->
+      <div class="grid">
+        <!-- 獎品管理 -->
+        <div class="card">
+          <h2><span class="icon">🎁</span>獎品管理</h2>
+          <div>
+            <label>獎品名稱</label>
+            <input type="text" id="prize-name" placeholder="例如：iPhone、電視 65 吋、現金 1,000 元" />
+            <label>獎品數量</label>
+            <input type="number" id="prize-qty" min="1" value="1" />
+            <button class="primary" id="btn-add-prize">新增獎品</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="prize-table">
+              <thead>
+                <tr>
+                  <th>獎品名稱</th>
+                  <th>總數</th>
+                  <th>已抽</th>
+                  <th>剩餘</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="prize-table-body">
+                <!-- JS 動態產生 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 員工管理 -->
+        <div class="card">
+          <h2><span class="icon">🧑‍💼</span>員工管理</h2>
+          <div>
+            <label>員工姓名</label>
+            <input type="text" id="emp-name" placeholder="例如：王小明" />
+            <button class="primary" id="btn-add-emp">新增員工</button>
+          </div>
+
+          <div style="margin-top:4px;">
+            <label>批次新增員工（每行一個姓名）</label>
+            <textarea id="emp-batch" rows="4" placeholder="例如：&#10;王小明&#10;陳小華&#10;林美麗"></textarea>
+            <button class="secondary" id="btn-add-emp-batch">批次新增員工</button>
+            <div class="hint-text">可直接貼上 120 位員工名單，系統會自動逐一建立。</div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="emp-table">
+              <thead>
+                <tr>
+                  <th>姓名</th>
+                  <th>中獎狀態</th>
+                  <th>中獎獎品</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="emp-table-body">
+                <!-- JS 動態產生 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 下半部：抽獎區 + 歷史紀錄 -->
+      <div class="draw-section">
+        <div class="winner-card">
+          <div class="winner-title">
+            <span>🎉</span>最新得獎結果
+          </div>
+          <div class="winner-text-main" id="winner-text">
+            尚未抽獎，請先選擇獎品並按下紅包抽獎鈕。
+          </div>
+          <div class="draw-status" id="draw-status">
+            抽獎待機中…
+          </div>
+          <div class="winner-sub">
+            抽獎過程會輪播候選員工姓名；抽出後自動寫入中獎紀錄與剩餘獎品數量。
+          </div>
+        </div>
+
+        <div class="card draw-panel">
+          <h2><span class="icon">🧧</span>抽獎操作</h2>
+
+          <div class="flex-row">
+            <label for="select-prize">選擇要抽的獎品：</label>
+            <select id="select-prize"></select>
+          </div>
+
+          <div class="draw-buttons">
+            <button class="red-envelope-btn" id="btn-draw-one">
+              <span class="icon">🧧</span>
+              <span>抽出 1 位得獎者</span>
+            </button>
+          </div>
+
+          <div class="draw-buttons">
+            <button class="danger" id="btn-reset-all">全部重置（清除中獎紀錄）</button>
+            <button class="secondary" id="btn-refresh">重新載入資料</button>
+          </div>
+
+          <h3 style="font-size:14px; margin-top:10px;">歷史中獎紀錄</h3>
+          <ul id="winner-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase + Firestore 邏輯 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      getDocs,
+      updateDoc,
+      deleteDoc,
+      doc,
+      onSnapshot,
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA_tLeQRwA1PY3wEAz1T9a8KfgZXmu88uI",
+      authDomain: "project1126-4c22b.firebaseapp.com",
+      projectId: "project1126-4c22b",
+      storageBucket: "project1126-4c22b.firebasestorage.app",
+      messagingSenderId: "84103482652",
+      appId: "1:84103482652:web:fb36a9fd67f8c7c85fbed9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const prizeNameInput = document.getElementById("prize-name");
+    const prizeQtyInput = document.getElementById("prize-qty");
+    const btnAddPrize = document.getElementById("btn-add-prize");
+    const prizeTableBody = document.getElementById("prize-table-body");
+
+    const empNameInput = document.getElementById("emp-name");
+    const btnAddEmp = document.getElementById("btn-add-emp");
+    const empBatchInput = document.getElementById("emp-batch");
+    const btnAddEmpBatch = document.getElementById("btn-add-emp-batch");
+    const empTableBody = document.getElementById("emp-table-body");
+
+    const selectPrize = document.getElementById("select-prize");
+    const btnDrawOne = document.getElementById("btn-draw-one");
+    const btnRefresh = document.getElementById("btn-refresh");
+    const btnResetAll = document.getElementById("btn-reset-all");
+    const winnerText = document.getElementById("winner-text");
+    const winnerList = document.getElementById("winner-list");
+    const drawStatus = document.getElementById("draw-status");
+
+    const prizesCol = collection(db, "prizes");
+    const employeesCol = collection(db, "employees");
+    const drawsCol = collection(db, "draws");
+
+    /* ========= 獎品 CRUD ========= */
+    btnAddPrize.addEventListener("click", async () => {
+      const name = prizeNameInput.value.trim();
+      const qty = parseInt(prizeQtyInput.value, 10) || 0;
+      if (!name || qty <= 0) {
+        alert("請輸入正確的獎品名稱與數量");
+        return;
+      }
+      await addDoc(prizesCol, {
+        name,
+        total: qty,
+        used: 0,
+        createdAt: Date.now()
+      });
+      prizeNameInput.value = "";
+      prizeQtyInput.value = 1;
+    });
+
+    function renderPrizes(docs) {
+      prizeTableBody.innerHTML = "";
+      docs.forEach(d => {
+        const data = d.data();
+        const remaining = (data.total || 0) - (data.used || 0);
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        const nameInput = document.createElement("input");
+        nameInput.value = data.name || "";
+        tdName.appendChild(nameInput);
+
+        const tdTotal = document.createElement("td");
+        const totalInput = document.createElement("input");
+        totalInput.type = "number";
+        totalInput.min = "1";
+        totalInput.value = data.total || 0;
+        tdTotal.appendChild(totalInput);
+
+        const tdUsed = document.createElement("td");
+        tdUsed.textContent = data.used || 0;
+
+        const tdRemain = document.createElement("td");
+        tdRemain.textContent = remaining;
+
+        const tdOps = document.createElement("td");
+        const btnSave = document.createElement("button");
+        btnSave.textContent = "儲存";
+        btnSave.className = "save-btn";
+        btnSave.onclick = async () => {
+          const newName = nameInput.value.trim();
+          const newTotal = parseInt(totalInput.value, 10) || 0;
+          if (!newName || newTotal <= 0) {
+            alert("請輸入正確的名稱與總數");
+            return;
+          }
+          await updateDoc(doc(db, "prizes", d.id), {
+            name: newName,
+            total: newTotal
+          });
+        };
+
+        const btnDelete = document.createElement("button");
+        btnDelete.textContent = "刪除";
+        btnDelete.className = "delete-btn";
+        btnDelete.onclick = async () => {
+          if (confirm("確定要刪除這個獎品嗎？")) {
+            await deleteDoc(doc(db, "prizes", d.id));
+          }
+        };
+
+        tdOps.appendChild(btnSave);
+        tdOps.appendChild(btnDelete);
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdTotal);
+        tr.appendChild(tdUsed);
+        tr.appendChild(tdRemain);
+        tr.appendChild(tdOps);
+
+        prizeTableBody.appendChild(tr);
+      });
+    }
+
+    function renderPrizeSelect(docs) {
+      selectPrize.innerHTML = "";
+      docs.forEach(d => {
+        const data = d.data();
+        const remaining = (data.total || 0) - (data.used || 0);
+        if (remaining > 0) {
+          const option = document.createElement("option");
+          option.value = d.id;
+          option.textContent = `${data.name}（剩餘 ${remaining}）`;
+          selectPrize.appendChild(option);
+        }
+      });
+      if (selectPrize.options.length === 0) {
+        const option = document.createElement("option");
+        option.textContent = "目前沒有可抽的獎品";
+        option.value = "";
+        selectPrize.appendChild(option);
+      }
+    }
+
+    async function loadPrizesOnce() {
+      const snapshot = await getDocs(prizesCol);
+      renderPrizes(snapshot.docs);
+      renderPrizeSelect(snapshot.docs);
+    }
+
+    /* ========= 員工 CRUD ========= */
+    btnAddEmp.addEventListener("click", async () => {
+      const name = empNameInput.value.trim();
+      if (!name) {
+        alert("請輸入員工姓名");
+        return;
+      }
+      await addDoc(employeesCol, {
+        name,
+        hasWon: false,
+        prizeName: "",
+        createdAt: Date.now()
+      });
+      empNameInput.value = "";
+    });
+
+    btnAddEmpBatch.addEventListener("click", async () => {
+      const text = empBatchInput.value;
+      if (!text.trim()) {
+        alert("請先貼上或輸入員工姓名，每行一個。");
+        return;
+      }
+      const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+      if (!lines.length) {
+        alert("沒有有效的姓名。");
+        return;
+      }
+      if (!confirm(`確定要批次新增 ${lines.length} 位員工嗎？`)) return;
+
+      for (const name of lines) {
+        await addDoc(employeesCol, {
+          name,
+          hasWon: false,
+          prizeName: "",
+          createdAt: Date.now()
+        });
+      }
+      empBatchInput.value = "";
+      alert(`已成功新增 ${lines.length} 位員工。`);
+    });
+
+    function renderEmployees(docs) {
+      empTableBody.innerHTML = "";
+      docs.forEach(d => {
+        const data = d.data();
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        const nameInput = document.createElement("input");
+        nameInput.value = data.name || "";
+        tdName.appendChild(nameInput);
+
+        const tdStatus = document.createElement("td");
+        const badge = document.createElement("span");
+        badge.className = "badge " + (data.hasWon ? "badge-green" : "badge-gray");
+        badge.textContent = data.hasWon ? "已中獎" : "未中獎";
+        tdStatus.appendChild(badge);
+
+        const tdPrize = document.createElement("td");
+        tdPrize.textContent = data.prizeName || "-";
+
+        const tdOps = document.createElement("td");
+        const btnSave = document.createElement("button");
+        btnSave.textContent = "儲存";
+        btnSave.className = "save-btn";
+        btnSave.onclick = async () => {
+          const newName = nameInput.value.trim();
+          if (!newName) {
+            alert("姓名不可空白");
+            return;
+          }
+          await updateDoc(doc(db, "employees", d.id), {
+            name: newName
+          });
+        };
+
+        const btnDelete = document.createElement("button");
+        btnDelete.textContent = "刪除";
+        btnDelete.className = "delete-btn";
+        btnDelete.onclick = async () => {
+          if (data.hasWon) {
+            alert("此員工已中獎，為避免紀錄錯亂，系統不允許刪除。");
+            return;
+          }
+          if (confirm("確定要刪除這位員工嗎？")) {
+            await deleteDoc(doc(db, "employees", d.id));
+          }
+        };
+
+        tdOps.appendChild(btnSave);
+        tdOps.appendChild(btnDelete);
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdPrize);
+        tr.appendChild(tdOps);
+
+        empTableBody.appendChild(tr);
+      });
+    }
+
+    async function loadEmployeesOnce() {
+      const snapshot = await getDocs(employeesCol);
+      renderEmployees(snapshot.docs);
+    }
+
+    /* ========= 抽獎動畫與邏輯 ========= */
+    function createConfetti() {
+      const colors = ["#f97316", "#22c55e", "#3b82f6", "#ec4899", "#facc15"];
+      const pieces = 80;
+      for (let i = 0; i < pieces; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDuration = 2 + Math.random() * 1.8 + "s";
+        piece.style.transform = "rotate(" + (Math.random()*360) + "deg)";
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3500);
+      }
+    }
+
+    btnDrawOne.addEventListener("click", async () => {
+      const prizeId = selectPrize.value;
+      if (!prizeId) {
+        alert("目前沒有可抽的獎品");
+        return;
+      }
+
+      const prizeSnap = await getDocs(query(prizesCol, where("__name__", "==", prizeId)));
+      if (prizeSnap.empty) {
+        alert("找不到獎品");
+        return;
+      }
+      const prizeDoc = prizeSnap.docs[0];
+      const prizeData = prizeDoc.data();
+      const remaining = (prizeData.total || 0) - (prizeData.used || 0);
+      if (remaining <= 0) {
+        alert("這個獎品已抽完");
+        return;
+      }
+
+      const empSnap = await getDocs(query(employeesCol, where("hasWon", "==", false)));
+      if (empSnap.empty) {
+        alert("沒有未中獎員工可以抽了");
+        return;
+      }
+      const candidates = empSnap.docs.map(d => ({ id: d.id, data: d.data() }));
+
+      btnDrawOne.disabled = true;
+      drawStatus.textContent = "抽獎進行中… 正在隨機輪播員工姓名";
+      winnerText.classList.add("rolling");
+
+      const finalIndex = Math.floor(Math.random() * candidates.length);
+      const finalWinner = candidates[finalIndex];
+
+      let step = 0;
+      const duration = 2000;
+      const intervalTime = 90;
+      const interval = setInterval(() => {
+        const random = candidates[step % candidates.length];
+        winnerText.textContent = `抽獎中… ${random.data.name}`;
+        step++;
+      }, intervalTime);
+
+      setTimeout(async () => {
+        clearInterval(interval);
+        winnerText.classList.remove("rolling");
+
+        const winnerDocId = finalWinner.id;
+        const winnerData = finalWinner.data;
+
+        await updateDoc(doc(db, "employees", winnerDocId), {
+          hasWon: true,
+          prizeName: prizeData.name
+        });
+        await updateDoc(doc(db, "prizes", prizeDoc.id), {
+          used: (prizeData.used || 0) + 1
+        });
+        await addDoc(drawsCol, {
+          employeeId: winnerDocId,
+          employeeName: winnerData.name,
+          prizeId: prizeDoc.id,
+          prizeName: prizeData.name,
+          createdAt: Date.now()
+        });
+
+        winnerText.textContent = `恭喜「${winnerData.name}」抽中「${prizeData.name}」！`;
+        drawStatus.textContent = "抽獎完成，可繼續抽下一個獎品。";
+        createConfetti();
+
+        const li = document.createElement("li");
+        const timeText = new Date().toLocaleTimeString();
+        li.textContent = `${timeText} - ${winnerData.name} 抽中 ${prizeData.name}`;
+        winnerList.prepend(li);
+
+        await loadPrizesOnce();
+        await loadEmployeesOnce();
+        btnDrawOne.disabled = false;
+      }, duration);
+    });
+
+    /* ========= 重置 ========= */
+    btnResetAll.addEventListener("click", async () => {
+      if (!confirm("確定要全部重置？員工中獎與獎品已抽數會被清除。")) return;
+
+      const empSnap = await getDocs(employeesCol);
+      for (const d of empSnap.docs) {
+        await updateDoc(doc(db, "employees", d.id), {
+          hasWon: false,
+          prizeName: ""
+        });
+      }
+
+      const prizeSnap = await getDocs(prizesCol);
+      for (const d of prizeSnap.docs) {
+        await updateDoc(doc(db, "prizes", d.id), {
+          used: 0
+        });
+      }
+
+      winnerText.textContent = "已全部重置，可以重新開始抽獎。";
+      drawStatus.textContent = "抽獎待機中…";
+      winnerList.innerHTML = "";
+      loadPrizesOnce();
+      loadEmployeesOnce();
+    });
+
+    btnRefresh.addEventListener("click", () => {
+      loadPrizesOnce();
+      loadEmployeesOnce();
+      drawStatus.textContent = "已重新載入最新資料。";
+    });
+
+    /* ========= 即時監聽 ========= */
+    onSnapshot(prizesCol, snapshot => {
+      renderPrizes(snapshot.docs);
+      renderPrizeSelect(snapshot.docs);
+    });
+
+    onSnapshot(employeesCol, snapshot => {
+      renderEmployees(snapshot.docs);
+    });
+
+    // 初次載入
+    loadPrizesOnce();
+    loadEmployeesOnce();
+  </script>
+</body>
+</html>
